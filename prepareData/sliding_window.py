@@ -1,15 +1,18 @@
 import os.path
 
-
 import numpy as np
 import pandas as pd
 from helper import sliding_window, fixedSize_window, structure_log
 
+ds_name = os.getenv('DATASET', 'BGL')  # 'Thunderbird' 'Liberty' 'BGL'
+base = os.getenv("BASE")
+
+if not base:
+    raise Exception("BASE environment variable is not set.")
+
 #### for Thunderbird, Liberty, BGL
-
-
-data_dir = r'/mnt/public/gw/SyslogData/BGL'
-log_name = "BGL.log"
+data_dir = f"{base}/data/{ds_name}"
+log_name = f"{ds_name}.log"
 
 start_line = 0
 end_line = None

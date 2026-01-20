@@ -5,9 +5,11 @@ from collections import defaultdict
 import pandas as pd
 from tqdm import tqdm
 
-from prepareData.helper import structure_log
+from helper import structure_log
 
-data_dir = r'/mnt/public/gw/SyslogData/HDFS_v1'
+base = os.getenv("BASE")
+
+data_dir = f"{base}/data/HDFS_v1"
 log_name = "HDFS.log"
 
 output_dir = data_dir
